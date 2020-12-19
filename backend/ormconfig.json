@@ -1,0 +1,6 @@
+{
+    "type": "better-sqlite3",
+    "database": "todo",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "synchronize": true
+  }
