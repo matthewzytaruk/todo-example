@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -11,8 +11,16 @@ import { TodoPage } from './components/TodoPage/TodoPage';
 import { v4 as uuid } from 'uuid';
 
 function App() {
+
+  const getToken = () => uuid();
+
   // generate new uuid if they want to create a new list.
-  const token = uuid();
+  let [token, setToken] = useState(getToken());
+  const handleClick = (evt: React.MouseEvent) => {
+    setToken(getToken());
+  }
+
+
   return (
 
     <Router>
@@ -27,7 +35,7 @@ function App() {
 
         <ul>
           <li>
-            <Link to={`${token}`}>Create a new Todo List</Link>
+            <Link to={`${token}`} onClick={handleClick}>Create a new Todo List</Link>
           </li>
         </ul>
 
